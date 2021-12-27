@@ -8,12 +8,30 @@ const (
 	height = 595
 )
 
-// RenderAndSave renders a context and save it as png in disk
-func RenderAndSave() {
+type Flowchart struct {
+	ctx *gg.Context
+}
+
+// Creates an empty flowchart
+func NewFlowchart() *Flowchart {
 	ctx := gg.NewContext(width, height)
-	// Set white background
+	// Set white brackground
 	ctx.DrawRectangle(0, 0, width, height)
 	ctx.SetRGB(1, 1, 1)
 	ctx.Fill()
-	ctx.SavePNG("flowchart.png")
+
+	return &Flowchart{
+		ctx: ctx,
+	}
+}
+
+// Add adds a flowchar component into the f
+// TODO: Change component type
+func (f *Flowchart) Add(component interface{}) {
+	panic("not implemented")
+}
+
+// RenderAndSave renders a flowchart and save it as png in disk
+func (f *Flowchart) RenderAndSave() {
+	f.ctx.SavePNG("flowchart.png")
 }
