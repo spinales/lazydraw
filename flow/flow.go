@@ -27,8 +27,8 @@ func NewFlowchart() *Flowchart {
 
 // Add adds a flowchar component into the f
 // TODO: Change component type
-func (f *Flowchart) Add(component interface{}) {
-	panic("not implemented")
+func (f *Flowchart) Add(component Component) {
+	component.Add(f.ctx)
 }
 
 // RenderAndSave renders a flowchart and save it as png in disk
